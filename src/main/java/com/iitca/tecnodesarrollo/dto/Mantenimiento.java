@@ -1,5 +1,7 @@
 package com.iitca.tecnodesarrollo.dto;
 
+import java.time.LocalDateTime;
+
 //import java.security.Timestamp;
 
 import jakarta.persistence.Column;
@@ -14,8 +16,12 @@ import lombok.Data;
 public class Mantenimiento {
 
 	@Id
+	@Column(name="Id_mtto")
+	private int id_mtto;
 	@Column(name="mtto_clave_pozo")
 	private String mtto_clave_pozo;
+	@Column(name="mtto_fecha_captura", columnDefinition = "DATETIME")
+    private LocalDateTime mtto_fecha_captura; 
 	//@Column(name="fecha_captura")
 	//private Timestamp fecha_captura;
 	@Column(name = "mtto_motor_tipo")

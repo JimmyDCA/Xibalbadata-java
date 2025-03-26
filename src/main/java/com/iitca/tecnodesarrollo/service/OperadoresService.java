@@ -20,8 +20,8 @@ public class OperadoresService {
 		return operadoresRepo.findAll();
 	}
 	
-	public Object getoperadoresByo_nombre(String o_nombre) {
-            return operadoresRepo.findById(o_nombre);
+	public Object getoperadoresByid(int id_o) {
+            return operadoresRepo.findById(id_o);
 		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
 		if(pozoFound.isPresent()) {
 			return pozoFound.get();
@@ -38,8 +38,8 @@ public class OperadoresService {
 		return operadoresRepo.save(operadores);
 	}
 	
-	public Operadores updateoperadores(String o_nombre, Operadores operadoresToUpate) {
-		Optional<Operadores> operadoresFound = operadoresRepo.findById(o_nombre);
+	public Operadores updateoperadores(int id_o, Operadores operadoresToUpate) {
+		Optional<Operadores> operadoresFound = operadoresRepo.findById(id_o);
 		if(operadoresFound.isPresent()) {
 			Operadores operadoresFoundToUpdate = operadoresFound.get();
 			operadoresFoundToUpdate.setO_nombre(operadoresToUpate.getO_nombre(	));
@@ -52,7 +52,7 @@ public class OperadoresService {
 		}
 	}
 	
-	public void deleteoperadores(String o_nombre) {
-		 operadoresRepo.deleteById(o_nombre);
+	public void deleteoperadores(int id_o) {
+		 operadoresRepo.deleteById(id_o);
 	}
 }

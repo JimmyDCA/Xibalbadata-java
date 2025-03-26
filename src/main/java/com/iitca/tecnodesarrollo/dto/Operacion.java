@@ -1,7 +1,13 @@
 package com.iitca.tecnodesarrollo.dto;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -12,8 +18,14 @@ import lombok.Data;
 public class Operacion {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="Id_op")
+	private Integer id_op;
 	@Column(name="op_cpozo")
 	private String op_cpozo;
+	@Column(name="op_fecha_captura", updatable = false, nullable = false)
+	@CreationTimestamp
+    private LocalDateTime op_fecha_captura; 
 	//@Column(name="op_fcaptura")
 	//private Timestamp op_fcaptura;
 	@Column(name = "op_nestatico")

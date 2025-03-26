@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.iitca.tecnodesarrollo.dto.Operadores;
 
-public interface OperadoresRepo extends JpaRepository<Operadores, String> {
+public interface OperadoresRepo extends JpaRepository<Operadores, Integer> {
 
 }

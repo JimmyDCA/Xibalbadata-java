@@ -44,6 +44,7 @@ public class Lista_pozosControler {
 		System.out.println("En el post");
 		System.out.println(lista_pozos.getL_poz_clave());
 		System.out.println(lista_pozos.getLp_Nombre());
+		System.out.println(lista_pozos.getLp_ramal());
 		//System.out.println(lista_pozos.getLp_Ubicación());
 		System.out.println(lista_pozos.getLp_Profundidad_perforación());
 		System.out.println(lista_pozos.getLp_Diámetro_perforación());

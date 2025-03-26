@@ -32,17 +32,20 @@ public class OperacionControler {
 		return ResponseEntity.ok(operacionService.listAll());
 	}
 	
-	@GetMapping("/{op_cpozo}")
-	public ResponseEntity<?> getoperacionById(@PathVariable String op_cpozo){
-		return ResponseEntity.ok(operacionService.getoperacionByOp_cpozo(op_cpozo));
+	@GetMapping("/{op_id}")
+	public ResponseEntity<?> getoperacionById(@PathVariable Integer op_id){
+		return ResponseEntity.ok(operacionService.getoperacionByOp_id(op_id));
 	}
 	
 	//hasta aqui
 	
 	@PostMapping
 	public ResponseEntity<Operacion> addoperacion(@RequestBody Operacion operacion){
+		operacion.setOp_id(null); // Asegurar que se cree un nuevo registro
 		System.out.println("En el post");
+		System.out.println(operacion.getOp_id());
 		System.out.println(operacion.getOp_cpozo());
+		System.out.println(operacion.getOp_fecha_captura());
 		//System.out.println(operacion.getOp_fcaptura());
 		System.out.println(operacion.getOp_nestatico());
 		System.out.println(operacion.getOp_ndinamico());
@@ -53,14 +56,14 @@ public class OperacionControler {
 		return new ResponseEntity<>(operacionService.saveoperacion(operacion),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{op_cpozo}")
-	public ResponseEntity<Operacion> updateoperacion(@RequestBody Operacion operacion, @PathVariable String op_cpozo){
-		return new ResponseEntity<Operacion>(operacionService.updateoperacion(op_cpozo, operacion),HttpStatus.OK);
+	@PutMapping("/{op_id}")
+	public ResponseEntity<Operacion> updateoperacion(@RequestBody Operacion operacion, @PathVariable Integer op_id){
+		return new ResponseEntity<Operacion>(operacionService.updateoperacion(op_id, operacion),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{op_cpozo}")
-	public ResponseEntity<?> deleteoperacion(@PathVariable String op_cpozo){
-		operacionService.deleteoperacion(op_cpozo);
+	@DeleteMapping("/{op_id}")
+	public ResponseEntity<?> deleteoperacion(@PathVariable Integer op_id){
+		operacionService.deleteoperacion(op_id);
 		return ResponseEntity.ok("Se elimino");
 	}
 }

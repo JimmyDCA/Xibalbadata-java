@@ -20,8 +20,8 @@ public class OperacionService {
 		return operacionRepo.findAll();
 	}
 	
-	public Object getoperacionByOp_cpozo(String op_cpozo) {
-            return operacionRepo.findById(op_cpozo);
+	public Object getoperacionByOp_id(Integer op_id) {
+            return operacionRepo.findById(op_id);
 		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
 		if(pozoFound.isPresent()) {
 			return pozoFound.get();
@@ -38,12 +38,13 @@ public class OperacionService {
 		return operacionRepo.save(operacion);
 	}
 	
-	public Operacion updateoperacion(String op_cpozo, Operacion operacionToUpate) {
-		Optional<Operacion> operacionFound = operacionRepo.findById(op_cpozo);
+	public Operacion updateoperacion(Integer op_id, Operacion operacionToUpate) {
+		Optional<Operacion> operacionFound = operacionRepo.findById(op_id);
 		if(operacionFound.isPresent()) {
 			Operacion operacionFoundToUpdate = operacionFound.get();
+			operacionFoundToUpdate.setOp_id(operacionToUpate.getOp_id(	));
 			operacionFoundToUpdate.setOp_cpozo(operacionToUpate.getOp_cpozo(	));
-            //operacionFoundToUpdate.setOp_fcaptura(operacionToUpate.getOp_fcaptura(	));
+            operacionFoundToUpdate.setOp_fecha_captura(operacionToUpate.getOp_fecha_captura(	));
             operacionFoundToUpdate.setOp_nestatico(operacionToUpate.getOp_nestatico(	));
             operacionFoundToUpdate.setOp_ndinamico(operacionToUpate.getOp_ndinamico(	));
             operacionFoundToUpdate.setOp_gasto(operacionToUpate.getOp_gasto(	));
@@ -56,7 +57,7 @@ public class OperacionService {
 		}
 	}
 	
-	public void deleteoperacion(String op_cpozo) {
-        operacionRepo.deleteById(op_cpozo);
+	public void deleteoperacion(Integer op_id) {
+        operacionRepo.deleteById(op_id);
 	}
 }

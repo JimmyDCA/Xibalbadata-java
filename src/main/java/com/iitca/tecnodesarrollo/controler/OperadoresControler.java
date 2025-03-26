@@ -32,9 +32,9 @@ public class OperadoresControler {
 		return ResponseEntity.ok(operadoresService.listAll());
 	}
 	
-	@GetMapping("/{o_nombre}")
-	public ResponseEntity<?> getoperadoresById(@PathVariable String o_nombre){
-		return ResponseEntity.ok(operadoresService.getoperadoresByo_nombre(o_nombre));
+	@GetMapping("/{id_o}")
+	public ResponseEntity<?> getoperadoresById(@PathVariable int id_o){
+		return ResponseEntity.ok(operadoresService.getoperadoresByid(id_o));
 	}
 	
 	//hasta aqui
@@ -49,14 +49,14 @@ public class OperadoresControler {
 		return new ResponseEntity<>(operadoresService.saveoperadores(operadores),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{o_nombre}")
-	public ResponseEntity<Operadores> updateoperadores(@RequestBody Operadores operadores, @PathVariable String o_nombre){
-		return new ResponseEntity<Operadores>(operadoresService.updateoperadores(o_nombre, operadores),HttpStatus.OK);
+	@PutMapping("/{id_o}")
+	public ResponseEntity<Operadores> updateoperadores(@RequestBody Operadores operadores, @PathVariable int id_o){
+		return new ResponseEntity<Operadores>(operadoresService.updateoperadores(id_o, operadores),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{o_nombre}")
-	public ResponseEntity<?> deleteoperadores(@PathVariable String o_nombre){
-		operadoresService.deleteoperadores(o_nombre);
+	@DeleteMapping("/{id_o}")
+	public ResponseEntity<?> deleteoperadores(@PathVariable int id_o){
+		operadoresService.deleteoperadores(id_o);
 		return ResponseEntity.ok("Se elimino");
 	}
 }

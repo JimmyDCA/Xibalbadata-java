@@ -43,7 +43,7 @@ public class MantenimientoControler {
 	public ResponseEntity<Mantenimiento> addmantenimiento(@RequestBody Mantenimiento mantenimiento){
 		System.out.println("En el post");
 		System.out.println(mantenimiento.getMtto_clave_pozo());
-        //System.out.println(mantenimiento.getMtto_fecha_captura());
+        System.out.println(mantenimiento.getMtto_fecha_captura());
         System.out.println(mantenimiento.getMtto_motor_tipo());
         System.out.println(mantenimiento.getMtto_motor_hp());
         System.out.println(mantenimiento.getMtto_motor_kw());
