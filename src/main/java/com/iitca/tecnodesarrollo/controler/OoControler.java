@@ -32,9 +32,9 @@ public class OoControler {
 		return ResponseEntity.ok(ooService.listAll());
 	}
 	
-	@GetMapping("/{oo_nombre}")
-	public ResponseEntity<?> getooById(@PathVariable String oo_nombre){
-		return ResponseEntity.ok(ooService.getooByOo_nombre(oo_nombre));
+	@GetMapping("/{id_oo}")
+	public ResponseEntity<?> getooById(@PathVariable int id_oo){
+		return ResponseEntity.ok(ooService.getooByid(id_oo));
 	}
 	
 	//hasta aqui
@@ -50,14 +50,14 @@ public class OoControler {
 		return new ResponseEntity<>(ooService.saveoo(oo),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{oo_nombre}")
-	public ResponseEntity<Oo> updateoo(@RequestBody Oo oo, @PathVariable String oo_nombre){
-		return new ResponseEntity<Oo>(ooService.updateoo(oo_nombre, oo),HttpStatus.OK);
+	@PutMapping("/{id_oo}")
+	public ResponseEntity<Oo> updateoo(@RequestBody Oo oo, @PathVariable int id_oo){
+		return new ResponseEntity<Oo>(ooService.updateoo(id_oo, oo),HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/{oo_nombre}")
-	public ResponseEntity<?> deleteoo(@PathVariable String oo_nombre){
-		ooService.deleteoo(oo_nombre);
+	@DeleteMapping("/{id_oo}")
+	public ResponseEntity<?> deleteoo(@PathVariable int id_oo){
+		ooService.deleteoo(id_oo);
 		return ResponseEntity.ok("Se elimino");
 	}
 }

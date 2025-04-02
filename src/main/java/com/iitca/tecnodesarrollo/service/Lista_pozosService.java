@@ -20,8 +20,8 @@ public class Lista_pozosService {
 		return lista_pozosRepo.findAll();
 	}
 	
-	public Object getlista_pozosByL_poz_Clave(String l_poz_Clave) {
-            return lista_pozosRepo.findById(l_poz_Clave);
+	public Object getlista_pozosByid(int id_lp) {
+            return lista_pozosRepo.findById(id_lp);
 		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
 		if(pozoFound.isPresent()) {
 			return pozoFound.get();
@@ -38,8 +38,8 @@ public class Lista_pozosService {
 		return lista_pozosRepo.save(lista_pozos);
 	}
 	
-	public Lista_pozos updatelista_pozos(String l_poz_Clave, Lista_pozos lista_pozosToUpate) {
-		Optional<Lista_pozos> lista_pozosFound = lista_pozosRepo.findById(l_poz_Clave);
+	public Lista_pozos updatelista_pozos(int id_lp, Lista_pozos lista_pozosToUpate) {
+		Optional<Lista_pozos> lista_pozosFound = lista_pozosRepo.findById(id_lp);
 		if(lista_pozosFound.isPresent()) {
 			Lista_pozos lista_pozosFoundToUpdate = lista_pozosFound.get();
 			lista_pozosFoundToUpdate.setL_poz_clave(lista_pozosToUpate.getL_poz_clave(	));
@@ -55,7 +55,7 @@ public class Lista_pozosService {
 		}
 	}
 	
-	public void deletelista_pozos(String l_poz_clave) {
-		 lista_pozosRepo.deleteById(l_poz_clave);
+	public void deletelista_pozos(int id_lp) {
+		 lista_pozosRepo.deleteById(id_lp);
 	}
 }

@@ -19,8 +19,8 @@ public class MantenimientoService {
 		return mantenimientoRepo.findAll();
 	}
 	
-	public Object getmantenimientoByMtto_clave_pozo(String mtto_clave_pozo) {
-            return mantenimientoRepo.findById(mtto_clave_pozo);
+	public Object getmantenimientoByid(int id_mtto) {
+            return mantenimientoRepo.findById(id_mtto);
 		 
 	}
 	
@@ -28,10 +28,11 @@ public class MantenimientoService {
 		return mantenimientoRepo.save(mantenimiento);
 	}
 	
-	public Mantenimiento updatemantenimiento(String mtto_clave_pozo, Mantenimiento mantenimientoToUpate) {
-		Optional<Mantenimiento> mantenimientoFound = mantenimientoRepo.findById(mtto_clave_pozo);
+	public Mantenimiento updatemantenimiento(int id_mtto, Mantenimiento mantenimientoToUpate) {
+		Optional<Mantenimiento> mantenimientoFound = mantenimientoRepo.findById(id_mtto);
 		if(mantenimientoFound.isPresent()) {
 			Mantenimiento mantenimientoFoundToUpdate = mantenimientoFound.get();
+			mantenimientoFoundToUpdate.setMtto_operador(mantenimientoToUpate.getMtto_operador(	));
 			mantenimientoFoundToUpdate.setMtto_clave_pozo(mantenimientoToUpate.getMtto_clave_pozo(	));
 			//mantenimientoFoundToUpdate.setMtto_fecha_captura(mantenimientoToUpate.getMtto_fecha_captura());
 			mantenimientoFoundToUpdate.setMtto_motor_tipo(mantenimientoToUpate.getMtto_motor_tipo());
@@ -53,7 +54,7 @@ public class MantenimientoService {
 		}
 	}
 	
-	public void deletemantenimiento(String mtto_clave_pozo) {
-		 mantenimientoRepo.deleteById(mtto_clave_pozo);
+	public void deletemantenimiento(int id_mtto) {
+		 mantenimientoRepo.deleteById(id_mtto);
 	}
 }

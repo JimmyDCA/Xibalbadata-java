@@ -6,8 +6,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -18,16 +16,16 @@ import lombok.Data;
 public class Operacion {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Id_op")
-	private Integer id_op;
+	private int id_op;
 	@Column(name="op_cpozo")
 	private String op_cpozo;
-	@Column(name="op_fecha_captura", updatable = false, nullable = false)
 	@CreationTimestamp
+	@Column(name="op_fecha_captura")
     private LocalDateTime op_fecha_captura; 
-	//@Column(name="op_fcaptura")
-	//private Timestamp op_fcaptura;
+	@Column(name = "op_operador")
+	private String op_operador;
+	//una vez enlazado con la app cambiar a int
 	@Column(name = "op_nestatico")
 	private float op_nestatico;
 	@Column(name="op_ndinamico")

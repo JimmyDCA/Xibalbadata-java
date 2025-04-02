@@ -1,4 +1,4 @@
-package com.iitca.tecnodesarrollo.controler;
+	package com.iitca.tecnodesarrollo.controler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,9 +32,9 @@ public class UsuariosControler {
 		return ResponseEntity.ok(usuariosService.listAll());
 	}
 	
-	@GetMapping("/{us_nombre}")
-	public ResponseEntity<?> getusuariosById(@PathVariable String us_nombre){
-		return ResponseEntity.ok(usuariosService.getusuariosByus_nombre(us_nombre));
+	@GetMapping("/{id_us}")
+	public ResponseEntity<?> getusuariosById(@PathVariable int id_us){
+		return ResponseEntity.ok(usuariosService.getusuariosByid(id_us));
 	}
 	
 	//hasta aqui
@@ -50,14 +50,14 @@ public class UsuariosControler {
 		return new ResponseEntity<>(usuariosService.saveusuarios(usuarios),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{us_nombre}")
-	public ResponseEntity<Usuarios> updateusuarios(@RequestBody Usuarios usuarios, @PathVariable String us_nombre){
-		return new ResponseEntity<Usuarios>(usuariosService.updateusuarios(us_nombre, usuarios),HttpStatus.OK);
+	@PutMapping("/{id_us}")
+	public ResponseEntity<Usuarios> updateusuarios(@RequestBody Usuarios usuarios, @PathVariable int id_us){
+		return new ResponseEntity<Usuarios>(usuariosService.updateusuarios(id_us, usuarios),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{us_nombre}")
-	public ResponseEntity<?> deleteusuarios(@PathVariable String us_nombre){
-		usuariosService.deleteusuarios(us_nombre);
+	@DeleteMapping("/{id_us}")
+	public ResponseEntity<?> deleteusuarios(@PathVariable int id_us){
+		usuariosService.deleteusuarios(id_us);
 		return ResponseEntity.ok("Se elimino");
 	}
 }

@@ -32,9 +32,9 @@ public class Alertas_pozosControler {
 		return ResponseEntity.ok(alertas_pozosService.listAll());
 	}
 	
-	@GetMapping("/{Al_Clave_de_pozo}")
-	public ResponseEntity<?> getPozoById(@PathVariable String Al_Clave_de_pozo){
-		return ResponseEntity.ok(alertas_pozosService.getalertas_pozosByAl_Clave_de_pozo(Al_Clave_de_pozo));
+	@GetMapping("/{id_al}")
+	public ResponseEntity<?> getPozoById(@PathVariable int id_al){
+		return ResponseEntity.ok(alertas_pozosService.getalertas_pozosByid(id_al));
 	}
 	
 	//hasta aqui
@@ -43,20 +43,20 @@ public class Alertas_pozosControler {
 	public ResponseEntity<Alertas_pozos> addalertas_pozos(@RequestBody Alertas_pozos alertas_pozos){
 		System.out.println("En el post");
 		System.out.println(alertas_pozos.getAl_Clave_de_pozo());
-		//System.out.println(alertas_pozos.getAl_Fecha_de_captura());
 		System.out.println(alertas_pozos.getAl_Tipo_de_alerta());
 		System.out.println(alertas_pozos.getAl_comentarios());
+		//System.out.println(alertas_pozos.getAl_Fecha_de_captura());
 		return new ResponseEntity<>(alertas_pozosService.savealertas_pozos(alertas_pozos),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{Al_Clave_de_pozo}")
-	public ResponseEntity<Alertas_pozos> updatealertas_pozos(@RequestBody Alertas_pozos alertas_pozos, @PathVariable String Al_Clave_de_pozo){
-		return new ResponseEntity<Alertas_pozos>(alertas_pozosService.updatealertas_pozos(Al_Clave_de_pozo, alertas_pozos),HttpStatus.OK);
+	@PutMapping("/{id_al}")
+	public ResponseEntity<Alertas_pozos> updatealertas_pozos(@RequestBody Alertas_pozos alertas_pozos, @PathVariable int id_al){
+		return new ResponseEntity<Alertas_pozos>(alertas_pozosService.updatealertas_pozos(id_al, alertas_pozos),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{Al_Clave_de_pozo}")
-	public ResponseEntity<?> deletealertas_pozos(@PathVariable String Al_Clave_de_pozo){
-		alertas_pozosService.deletealertas_pozos(Al_Clave_de_pozo);
+	@DeleteMapping("/{id_al}")
+	public ResponseEntity<?> deletealertas_pozos(@PathVariable int id_al){
+		alertas_pozosService.deletealertas_pozos(id_al);
 		return ResponseEntity.ok("Se elimino");
 	}
 }

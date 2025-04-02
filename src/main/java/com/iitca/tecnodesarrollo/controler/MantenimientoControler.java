@@ -32,9 +32,9 @@ public class MantenimientoControler {
 		return ResponseEntity.ok(mantenimientoService.listAll());
 	}
 	
-	@GetMapping("/{mtto_clave_pozo}")
-	public ResponseEntity<?> getmantenimientoById(@PathVariable String mtto_clave_pozo){
-		return ResponseEntity.ok(mantenimientoService.getmantenimientoByMtto_clave_pozo(mtto_clave_pozo));
+	@GetMapping("/{id_mtto}")
+	public ResponseEntity<?> getmantenimientoById(@PathVariable int id_mtto){
+		return ResponseEntity.ok(mantenimientoService.getmantenimientoByid(id_mtto));
 	}
 	
 	//hasta aqui
@@ -42,6 +42,7 @@ public class MantenimientoControler {
 	@PostMapping
 	public ResponseEntity<Mantenimiento> addmantenimiento(@RequestBody Mantenimiento mantenimiento){
 		System.out.println("En el post");
+		System.out.println(mantenimiento.getMtto_operador());
 		System.out.println(mantenimiento.getMtto_clave_pozo());
         System.out.println(mantenimiento.getMtto_fecha_captura());
         System.out.println(mantenimiento.getMtto_motor_tipo());
@@ -51,7 +52,7 @@ public class MantenimientoControler {
         System.out.println(mantenimiento.getMtto_tablero_tipo());
         System.out.println(mantenimiento.getMtto_tablero_capacidad());
         System.out.println(mantenimiento.getMtto_transformador_tipo());
-        System.out.println(mantenimiento.getMtto_transformador_tipo());
+        System.out.println(mantenimiento.getMtto_transformador_capacidad());
         System.out.println(mantenimiento.getMtto_cable_calibre());
         System.out.println(mantenimiento.getMtto_cable_longitud());
 		System.out.println(mantenimiento.getMtto_tuberia_diametro());
@@ -61,14 +62,14 @@ public class MantenimientoControler {
 		return new ResponseEntity<>(mantenimientoService.savemantenimiento(mantenimiento),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{mtto_clave_pozo}")
-	public ResponseEntity<Mantenimiento> updatemantenimiento(@RequestBody Mantenimiento mantenimiento, @PathVariable String mtto_clave_pozo){
-		return new ResponseEntity<Mantenimiento>(mantenimientoService.updatemantenimiento(mtto_clave_pozo, mantenimiento),HttpStatus.OK);
+	@PutMapping("/{id_mtto}")
+	public ResponseEntity<Mantenimiento> updatemantenimiento(@RequestBody Mantenimiento mantenimiento, @PathVariable int id_mtto){
+		return new ResponseEntity<Mantenimiento>(mantenimientoService.updatemantenimiento(id_mtto, mantenimiento),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{mtto_clave_pozo}")
-	public ResponseEntity<?> deletemantenimiento(@PathVariable String mtto_clave_pozo){
-		mantenimientoService.deletemantenimiento(mtto_clave_pozo);
+	@DeleteMapping("/{id_mtto}")
+	public ResponseEntity<?> deletemantenimiento(@PathVariable int id_mtto){
+		mantenimientoService.deletemantenimiento(id_mtto);
 		return ResponseEntity.ok("Se elimino");
 	}
 }

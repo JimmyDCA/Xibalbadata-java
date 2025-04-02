@@ -18,6 +18,8 @@ public class Mantenimiento {
 	@Id
 	@Column(name="Id_mtto")
 	private int id_mtto;
+	@Column(name="mtto_operador")
+	private int mtto_operador;
 	@Column(name="mtto_clave_pozo")
 	private String mtto_clave_pozo;
 	@Column(name="mtto_fecha_captura", columnDefinition = "DATETIME")

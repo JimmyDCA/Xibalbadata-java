@@ -32,21 +32,19 @@ public class OperacionControler {
 		return ResponseEntity.ok(operacionService.listAll());
 	}
 	
-	@GetMapping("/{op_id}")
-	public ResponseEntity<?> getoperacionById(@PathVariable Integer op_id){
-		return ResponseEntity.ok(operacionService.getoperacionByOp_id(op_id));
+	@GetMapping("/{id_op}")
+	public ResponseEntity<?> getoperacionById(@PathVariable int id_op){
+		return ResponseEntity.ok(operacionService.getoperacionByid(id_op));
 	}
 	
 	//hasta aqui
 	
 	@PostMapping
 	public ResponseEntity<Operacion> addoperacion(@RequestBody Operacion operacion){
-		operacion.setOp_id(null); // Asegurar que se cree un nuevo registro
 		System.out.println("En el post");
-		System.out.println(operacion.getOp_id());
 		System.out.println(operacion.getOp_cpozo());
 		System.out.println(operacion.getOp_fecha_captura());
-		//System.out.println(operacion.getOp_fcaptura());
+		System.out.println(operacion.getOp_operador());
 		System.out.println(operacion.getOp_nestatico());
 		System.out.println(operacion.getOp_ndinamico());
         System.out.println(operacion.getOp_gasto());
@@ -56,14 +54,14 @@ public class OperacionControler {
 		return new ResponseEntity<>(operacionService.saveoperacion(operacion),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{op_id}")
-	public ResponseEntity<Operacion> updateoperacion(@RequestBody Operacion operacion, @PathVariable Integer op_id){
-		return new ResponseEntity<Operacion>(operacionService.updateoperacion(op_id, operacion),HttpStatus.OK);
+	@PutMapping("/{id_op}")
+	public ResponseEntity<Operacion> updateoperacion(@RequestBody Operacion operacion, @PathVariable int id_op){
+		return new ResponseEntity<Operacion>(operacionService.updateoperacion(id_op, operacion),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{op_id}")
-	public ResponseEntity<?> deleteoperacion(@PathVariable Integer op_id){
-		operacionService.deleteoperacion(op_id);
+	@DeleteMapping("/{id_op}")
+	public ResponseEntity<?> deleteoperacion(@PathVariable int id_op){
+		operacionService.deleteoperacion(id_op);
 		return ResponseEntity.ok("Se elimino");
 	}
 }

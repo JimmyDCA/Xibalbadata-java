@@ -32,9 +32,9 @@ public class Lista_pozosControler {
 		return ResponseEntity.ok(lista_pozosService.listAll());
 	}
 	
-	@GetMapping("/{L_poz_Clave}")
-	public ResponseEntity<?> getlista_pozosById(@PathVariable String L_poz_Clave){
-		return ResponseEntity.ok(lista_pozosService.getlista_pozosByL_poz_Clave(L_poz_Clave));
+	@GetMapping("/{id_lp}")
+	public ResponseEntity<?> getlista_pozosById(@PathVariable int id_lp){
+		return ResponseEntity.ok(lista_pozosService.getlista_pozosByid(id_lp));
 	}
 	
 	//hasta aqui
@@ -54,14 +54,14 @@ public class Lista_pozosControler {
 		return new ResponseEntity<>(lista_pozosService.savelista_pozos(lista_pozos),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{L_poz_Clave}")
-	public ResponseEntity<Lista_pozos> updatelista_pozos(@RequestBody Lista_pozos lista_pozos, @PathVariable String L_poz_Clave){
-		return new ResponseEntity<Lista_pozos>(lista_pozosService.updatelista_pozos(L_poz_Clave, lista_pozos),HttpStatus.OK);
+	@PutMapping("/{id_lp}")
+	public ResponseEntity<Lista_pozos> updatelista_pozos(@RequestBody Lista_pozos lista_pozos, @PathVariable int id_lp){
+		return new ResponseEntity<Lista_pozos>(lista_pozosService.updatelista_pozos(id_lp, lista_pozos),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{L_poz_Clave}")
-	public ResponseEntity<?> deletelista_pozos(@PathVariable String L_poz_Clave){
-		lista_pozosService.deletelista_pozos(L_poz_Clave);
+	@DeleteMapping("/{id_lp}")
+	public ResponseEntity<?> deletelista_pozos(@PathVariable int id_lp){
+		lista_pozosService.deletelista_pozos(id_lp);
 		return ResponseEntity.ok("Se elimino");
 	}
 }

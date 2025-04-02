@@ -20,8 +20,8 @@ public class Alertas_pozosService {
 		return alertas_pozosRepo.findAll();
 	}
 	
-	public Object getalertas_pozosByAl_Clave_de_pozo(String al_Clave_de_pozo) {
-            return alertas_pozosRepo.findById(al_Clave_de_pozo);
+	public Object getalertas_pozosByid(int id_al) {
+            return alertas_pozosRepo.findById(id_al);
 		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
 		if(pozoFound.isPresent()) {
 			return pozoFound.get();
@@ -38,21 +38,21 @@ public class Alertas_pozosService {
 		return alertas_pozosRepo.save(alertas_pozos);
 	}
 	
-	public Alertas_pozos updatealertas_pozos(String Al_Clave_de_pozo, Alertas_pozos alertas_pozosToUpate) {
-		Optional<Alertas_pozos> alertas_pozosFound = alertas_pozosRepo.findById(Al_Clave_de_pozo);
+	public Alertas_pozos updatealertas_pozos(int id_al, Alertas_pozos alertas_pozosToUpate) {
+		Optional<Alertas_pozos> alertas_pozosFound = alertas_pozosRepo.findById(id_al);
 		if(alertas_pozosFound.isPresent()) {
 			Alertas_pozos alertas_pozosFoundToUpdate = alertas_pozosFound.get();
             alertas_pozosFoundToUpdate.setAl_Clave_de_pozo(alertas_pozosToUpate.getAl_Clave_de_pozo(	));
-			//alertas_pozosFoundToUpdate.setAl_Fecha_de_captura(alertas_pozosToUpate.getAl_Fecha_de_captura());
 			alertas_pozosFoundToUpdate.setAl_Tipo_de_alerta(alertas_pozosToUpate.getAl_Tipo_de_alerta());
 			alertas_pozosFoundToUpdate.setAl_comentarios(alertas_pozosToUpate.getAl_comentarios());
+			//alertas_pozosFoundToUpdate.setal_fechacap(alertas_pozosToUpate.getal_fechacap());
 			return alertas_pozosRepo.save(alertas_pozosFoundToUpdate);
 		}else {
 			return null;
 		}
 	}
 	
-	public void deletealertas_pozos(String al_Clave_de_pozo) {
-		 alertas_pozosRepo.deleteById(al_Clave_de_pozo);
+	public void deletealertas_pozos(int id_al) {
+		 alertas_pozosRepo.deleteById(id_al);
 	}
 }

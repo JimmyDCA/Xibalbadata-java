@@ -12,6 +12,8 @@ import lombok.Data;
 public class Usuarios {
 
 	@Id
+	@Column(name="Id_us")
+	private int id_us;
 	@Column(name="us_nombre")
 	private String us_nombre;
 	@Column(name="us_correo")

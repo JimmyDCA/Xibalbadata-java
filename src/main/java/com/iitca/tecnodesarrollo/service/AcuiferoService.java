@@ -20,8 +20,8 @@ public class AcuiferoService {
 		return acuiferoRepo.findAll();
 	}
 	
-	public Object getacuiferoByAcu_clave(Integer acu_clave) {
-            return acuiferoRepo.findById(acu_clave);
+	public Object getacuiferoByid(int id_acu) {
+            return acuiferoRepo.findById(id_acu);
 		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
 		if(pozoFound.isPresent()) {
 			return pozoFound.get();
@@ -38,14 +38,14 @@ public class AcuiferoService {
 		return acuiferoRepo.save(acuifero);
 	}
 	
-	public Acuifero updateacuifero(Integer Acu_clave, Acuifero acuiferoToUpate) {
-		Optional<Acuifero> acuiferoFound = acuiferoRepo.findById(Acu_clave);
+	public Acuifero updateacuifero(int id_acu, Acuifero acuiferoToUpate) {
+		Optional<Acuifero> acuiferoFound = acuiferoRepo.findById(id_acu);
 		if(acuiferoFound.isPresent()) {
 			Acuifero acuiferoFoundToUpdate = acuiferoFound.get();
 			acuiferoFoundToUpdate.setAcu_clave(acuiferoToUpate.getAcu_clave(	));
 			acuiferoFoundToUpdate.setAcu_nombre(acuiferoToUpate.getAcu_nombre());
 			acuiferoFoundToUpdate.setAcu_descripcion(acuiferoToUpate.getAcu_descripcion());
-			//acuiferoFoundToUpdate.setAcu_limites(acuiferoToUpate.getA_limites());
+			acuiferoFoundToUpdate.setAcu_limites(acuiferoToUpate.getAcu_limites());
 			acuiferoFoundToUpdate.setAcu_num_op(acuiferoToUpate.getAcu_num_op());
 			return acuiferoRepo.save(acuiferoFoundToUpdate);
 		}else {
@@ -53,7 +53,7 @@ public class AcuiferoService {
 		}
 	}
 	
-	public void deleteacuifero(Integer acu_clave) {
-		 acuiferoRepo.deleteById(acu_clave);
+	public void deleteacuifero(int id_acu) {
+		 acuiferoRepo.deleteById(id_acu);
 	}
 }

@@ -20,8 +20,8 @@ public class UsuariosService {
 		return usuariosRepo.findAll();
 	}
 	
-	public Object getusuariosByus_nombre(String us_nombre) {
-            return usuariosRepo.findById(us_nombre);
+	public Object getusuariosByid(int id_us) {
+            return usuariosRepo.findById(id_us);
 		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
 		if(pozoFound.isPresent()) {
 			return pozoFound.get();
@@ -38,8 +38,8 @@ public class UsuariosService {
 		return usuariosRepo.save(usuarios);
 	}
 	
-	public Usuarios updateusuarios(String us_nombre, Usuarios usuariosToUpate) {
-		Optional<Usuarios> usuariosFound = usuariosRepo.findById(us_nombre);
+	public Usuarios updateusuarios(int id_us, Usuarios usuariosToUpate) {
+		Optional<Usuarios> usuariosFound = usuariosRepo.findById(id_us);
 		if(usuariosFound.isPresent()) {
 			Usuarios usuariosFoundToUpdate = usuariosFound.get();
 			usuariosFoundToUpdate.setUs_nombre(usuariosToUpate.getUs_nombre(	));
@@ -53,7 +53,7 @@ public class UsuariosService {
 		}
 	}
 	
-	public void deleteusuarios(String us_nombre) {
-		 usuariosRepo.deleteById(us_nombre);
+	public void deleteusuarios(int id_us) {
+		 usuariosRepo.deleteById(id_us);
 	}
 }

@@ -20,8 +20,8 @@ public class OoService {
 		return ooRepo.findAll();
 	}
 	
-	public Object getooByOo_nombre(String oo_nombre) {
-            return ooRepo.findById(oo_nombre);
+	public Object getooByid(int id_oo) {
+            return ooRepo.findById(id_oo);
 		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
 		if(pozoFound.isPresent()) {
 			return pozoFound.get();
@@ -38,8 +38,8 @@ public class OoService {
 		return ooRepo.save(oo);
 	}
 	
-	public Oo updateoo(String oo_nombre, Oo ooToUpate) {
-		Optional<Oo> ooFound = ooRepo.findById(oo_nombre);
+	public Oo updateoo(int id_oo, Oo ooToUpate) {
+		Optional<Oo> ooFound = ooRepo.findById(id_oo);
 		if(ooFound.isPresent()) {
 			Oo ooFoundToUpdate = ooFound.get();
 			ooFoundToUpdate.setOo_acu_clave(ooToUpate.getOo_acu_clave(	));
@@ -52,7 +52,7 @@ public class OoService {
 		}
 	}
 	
-	public void deleteoo(String oo_nombre) {
-		 ooRepo.deleteById(oo_nombre);
+	public void deleteoo(int id_oo) {
+		 ooRepo.deleteById(id_oo);
 	}
 }

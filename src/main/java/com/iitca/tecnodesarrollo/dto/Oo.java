@@ -12,6 +12,8 @@ import lombok.Data;
 public class Oo {
 
 	@Id
+	@Column (name="Id_oo")
+	private int id_oo;
 	@Column(name="oo_acu_clave")
 	private Integer oo_acu_clave;
 	@Column(name="oo_nombre")
