@@ -45,6 +45,8 @@ public class Alertas_pozosService {
             alertas_pozosFoundToUpdate.setAl_clave_de_pozo(alertas_pozosToUpate.getAl_clave_de_pozo(	));
 			alertas_pozosFoundToUpdate.setAl_tipo_de_alerta(alertas_pozosToUpate.getAl_tipo_de_alerta());
 			alertas_pozosFoundToUpdate.setAl_comentarios(alertas_pozosToUpate.getAl_comentarios());
+			alertas_pozosFoundToUpdate.setAl_fechacap(alertas_pozosToUpate.getAl_fechacap());
+			alertas_pozosFoundToUpdate.setAl_operador(alertas_pozosToUpate.getAl_operador());
 			//alertas_pozosFoundToUpdate.setal_fechacap(alertas_pozosToUpate.getal_fechacap());
 			return alertas_pozosRepo.save(alertas_pozosFoundToUpdate);
 		}else {

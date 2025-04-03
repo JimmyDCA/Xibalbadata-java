@@ -45,7 +45,8 @@ public class Alertas_pozosControler {
 		System.out.println(alertas_pozos.getAl_clave_de_pozo());
 		System.out.println(alertas_pozos.getAl_tipo_de_alerta());
 		System.out.println(alertas_pozos.getAl_comentarios());
-		//System.out.println(alertas_pozos.getAl_Fecha_de_captura());
+		System.out.println(alertas_pozos.getAl_fechacap());
+		System.out.println(alertas_pozos.getAl_operador());
 		return new ResponseEntity<>(alertas_pozosService.savealertas_pozos(alertas_pozos),HttpStatus.CREATED);
 	}
 	

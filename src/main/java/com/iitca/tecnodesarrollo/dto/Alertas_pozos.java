@@ -1,6 +1,7 @@
 package com.iitca.tecnodesarrollo.dto;
 
 import java.time.LocalDateTime;
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,6 +25,7 @@ public class Alertas_pozos {
 	private String al_comentarios;
 	@Column(name = "Al_operador")
 	private String al_operador;
+	@CreationTimestamp
 	@Column(name="Al_fechacap")
 	private LocalDateTime al_fechacap;
 
