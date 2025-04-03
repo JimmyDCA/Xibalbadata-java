@@ -42,8 +42,8 @@ public class Alertas_pozosControler {
 	@PostMapping
 	public ResponseEntity<Alertas_pozos> addalertas_pozos(@RequestBody Alertas_pozos alertas_pozos){
 		System.out.println("En el post");
-		System.out.println(alertas_pozos.getAl_Clave_de_pozo());
-		System.out.println(alertas_pozos.getAl_Tipo_de_alerta());
+		System.out.println(alertas_pozos.getAl_clave_de_pozo());
+		System.out.println(alertas_pozos.getAl_tipo_de_alerta());
 		System.out.println(alertas_pozos.getAl_comentarios());
 		//System.out.println(alertas_pozos.getAl_Fecha_de_captura());
 		return new ResponseEntity<>(alertas_pozosService.savealertas_pozos(alertas_pozos),HttpStatus.CREATED);

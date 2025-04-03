@@ -22,16 +22,7 @@ public class OperacionService {
 	
 	public Object getoperacionByid(int id_op) {
             return operacionRepo.findById(id_op);
-		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
-		if(pozoFound.isPresent()) {
-			return pozoFound.get();
-		}else {
-			ErrorMsg error = new ErrorMsg();
-			error.setErrorCode(400);
-			error.setMessageCode("No existe el pozo "+idPozo);
-			return	error;
-		}*/
-		 
+
 	}
 	
 	public Operacion saveoperacion(Operacion operacion) {

@@ -34,7 +34,7 @@ public class MantenimientoService {
 			Mantenimiento mantenimientoFoundToUpdate = mantenimientoFound.get();
 			mantenimientoFoundToUpdate.setMtto_operador(mantenimientoToUpate.getMtto_operador(	));
 			mantenimientoFoundToUpdate.setMtto_clave_pozo(mantenimientoToUpate.getMtto_clave_pozo(	));
-			//mantenimientoFoundToUpdate.setMtto_fecha_captura(mantenimientoToUpate.getMtto_fecha_captura());
+			mantenimientoFoundToUpdate.setMtto_fecha_captura(mantenimientoToUpate.getMtto_fecha_captura());
 			mantenimientoFoundToUpdate.setMtto_motor_tipo(mantenimientoToUpate.getMtto_motor_tipo());
 			mantenimientoFoundToUpdate.setMtto_motor_hp(mantenimientoToUpate.getMtto_motor_hp());
 			mantenimientoFoundToUpdate.setMtto_motor_kw(mantenimientoToUpate.getMtto_motor_kw());

@@ -42,8 +42,8 @@ public class Alertas_pozosService {
 		Optional<Alertas_pozos> alertas_pozosFound = alertas_pozosRepo.findById(id_al);
 		if(alertas_pozosFound.isPresent()) {
 			Alertas_pozos alertas_pozosFoundToUpdate = alertas_pozosFound.get();
-            alertas_pozosFoundToUpdate.setAl_Clave_de_pozo(alertas_pozosToUpate.getAl_Clave_de_pozo(	));
-			alertas_pozosFoundToUpdate.setAl_Tipo_de_alerta(alertas_pozosToUpate.getAl_Tipo_de_alerta());
+            alertas_pozosFoundToUpdate.setAl_clave_de_pozo(alertas_pozosToUpate.getAl_clave_de_pozo(	));
+			alertas_pozosFoundToUpdate.setAl_tipo_de_alerta(alertas_pozosToUpate.getAl_tipo_de_alerta());
 			alertas_pozosFoundToUpdate.setAl_comentarios(alertas_pozosToUpate.getAl_comentarios());
 			//alertas_pozosFoundToUpdate.setal_fechacap(alertas_pozosToUpate.getal_fechacap());
 			return alertas_pozosRepo.save(alertas_pozosFoundToUpdate);
