@@ -37,6 +37,10 @@ public class OperacionControler {
 		return ResponseEntity.ok(operacionService.getoperacionByid(id_op));
 	}
 	
+	@GetMapping("/pozo/{id_lp}")
+	public ResponseEntity<?> getoperacionByIdPozo(@PathVariable int id_lp){
+		return ResponseEntity.ok(operacionService.getoperacionByIdPozo(id_lp));
+	}
 	//hasta aqui
 	
 	@PostMapping

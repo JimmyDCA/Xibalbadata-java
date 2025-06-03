@@ -37,6 +37,10 @@ public class MantenimientoControler {
 		return ResponseEntity.ok(mantenimientoService.getmantenimientoByid(id_mtto));
 	}
 	
+	@GetMapping("/pozo/{id_lp}")
+	public ResponseEntity<?> getmantenimientoByIdPozo(@PathVariable int id_lp){
+		return ResponseEntity.ok(mantenimientoService.getmantenimientoByIdPozo(id_lp));
+	}
 	//hasta aqui
 	
 	@PostMapping

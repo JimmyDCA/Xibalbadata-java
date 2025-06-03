@@ -18,6 +18,8 @@ public class Mantenimiento {
 	@Id
 	@Column(name="Id_mtto")
 	private int id_mtto;
+	@Column(name="Id_lp")
+	private int idLp;
 	@Column(name="mtto_operador")
 	private int mtto_operador;
 	@Column(name="mtto_clave_pozo")

@@ -9,15 +9,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "operacion")
 public class Operacion {
 
 	@Id
 	@Column(name="Id_op")
 	private int id_op;
+	@Column(name = "Id_lp")
+	private int idLp;
 	@Column(name="op_cpozo")
 	private String op_cpozo;
 	@CreationTimestamp

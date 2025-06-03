@@ -23,7 +23,13 @@ public class MantenimientoService {
             return mantenimientoRepo.findById(id_mtto);
 		 
 	}
-	
+
+		public Object getmantenimientoByIdPozo(int id_lp) {
+            return mantenimientoRepo.findByIdLp(id_lp);
+		 
+	}
+
+
 	public Mantenimiento savemantenimiento(Mantenimiento mantenimiento) {
 		return mantenimientoRepo.save(mantenimiento);
 	}
