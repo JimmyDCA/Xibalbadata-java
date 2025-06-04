@@ -17,6 +17,8 @@ public class Alertas_pozos {
 	@Id
 	@Column(name="Id_al")
 	private int id_al;
+	@Column(name = "Id_lp")
+	private int idLp;
 	@Column(name="Al_clave_de_pozo")
 	private String al_clave_de_pozo;
 	@Column(name = "Al_tipo_de_alerta")

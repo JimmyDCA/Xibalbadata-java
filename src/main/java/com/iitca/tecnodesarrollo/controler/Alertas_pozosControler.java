@@ -36,6 +36,10 @@ public class Alertas_pozosControler {
 	public ResponseEntity<?> getPozoById(@PathVariable int id_al){
 		return ResponseEntity.ok(alertas_pozosService.getalertas_pozosByid(id_al));
 	}
+	@GetMapping("/pozo/{id_lp}")
+	public ResponseEntity<?> getalertas_pozosByIdPozo(@PathVariable int id_lp){
+		return ResponseEntity.ok(alertas_pozosService.getalertas_pozosByIdPozo(id_lp));
+	}
 	
 	//hasta aqui
 	

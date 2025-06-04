@@ -33,6 +33,10 @@ public class Alertas_pozosService {
 		}*/
 		 
 	}
+
+		public Object getalertas_pozosByIdPozo(int id_lp) {
+            return alertas_pozosRepo.findByIdLp(id_lp);
+	}
 	
 	public Alertas_pozos savealertas_pozos(Alertas_pozos alertas_pozos) {
 		return alertas_pozosRepo.save(alertas_pozos);

@@ -39,6 +39,7 @@ public class OperacionControler {
 	
 	@GetMapping("/pozo/{id_lp}")
 	public ResponseEntity<?> getoperacionByIdPozo(@PathVariable int id_lp){
+		System.out.println("id_pozo_op"+id_lp);
 		return ResponseEntity.ok(operacionService.getoperacionByIdPozo(id_lp));
 	}
 	//hasta aqui
@@ -46,6 +47,7 @@ public class OperacionControler {
 	@PostMapping
 	public ResponseEntity<Operacion> addoperacion(@RequestBody Operacion operacion){
 		System.out.println("En el post");
+		System.out.println(operacion.getIdLp());
 		System.out.println(operacion.getOp_cpozo());
 		System.out.println(operacion.getOp_fecha_captura());
 		System.out.println(operacion.getOp_operador());
