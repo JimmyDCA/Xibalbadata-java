@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.iitca.tecnodesarrollo.dto.Lista_pozos;
 import com.iitca.tecnodesarrollo.service.Lista_pozosService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/lista_pozos")
 @CrossOrigin("*")

@@ -16,7 +16,7 @@ public class Lista_pozos {
 	@Id
 	@Column(name="Id_lp")
 	private int id_lp;
-	@Column(name="L_poz_Clave")
+	@Column(name="l_poz_Clave")
 	private String l_poz_clave;
 	@Column(name="lp_Nombre")
 	private String lp_Nombre;

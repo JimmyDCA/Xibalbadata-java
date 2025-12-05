@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Operacion {
 
 	@Id
-	@Column(name="Id_op")
+	@Column(name="op_id")
 	private int id_op;
 	@Column(name = "Id_lp")
 	private int idLp;

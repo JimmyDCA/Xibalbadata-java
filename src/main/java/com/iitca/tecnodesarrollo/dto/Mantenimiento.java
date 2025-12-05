@@ -16,8 +16,6 @@ import lombok.Data;
 public class Mantenimiento {
 
 	@Id
-	@Column(name="Id_mtto")
-	private int id_mtto;
 	@Column(name="Id_lp")
 	private int idLp;
 	@Column(name="mtto_operador")
