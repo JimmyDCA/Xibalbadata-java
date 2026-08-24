@@ -17,8 +17,8 @@ import com.iitca.tecnodesarrollo.dto.Operacion;
 import com.iitca.tecnodesarrollo.service.OperacionService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/operacion")
-@CrossOrigin("*")
 public class OperacionControler {
 
 	//desde aqui

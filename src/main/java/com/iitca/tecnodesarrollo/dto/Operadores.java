@@ -4,9 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
 
-@Data
+
 @Entity
 @Table(name = "operadores")
 public class Operadores {
@@ -22,6 +21,46 @@ public class Operadores {
 	private String o_contrasena;
 	@Column(name="o_telefono")
 	private String o_telefono;
+
+    public int getId_o() {
+        return id_o;
+    }
+
+    public void setId_o(int id_o) {
+        this.id_o = id_o;
+    }
+
+    public String getO_nombre() {
+        return o_nombre;
+    }
+
+    public void setO_nombre(String o_nombre) {
+        this.o_nombre = o_nombre;
+    }
+
+    public String getO_correo() {
+        return o_correo;
+    }
+
+    public void setO_correo(String o_correo) {
+        this.o_correo = o_correo;
+    }
+
+    public String getO_contrasena() {
+        return o_contrasena;
+    }
+
+    public void setO_contrasena(String o_contrasena) {
+        this.o_contrasena = o_contrasena;
+    }
+
+    public String getO_telefono() {
+        return o_telefono;
+    }
+
+    public void setO_telefono(String o_telefono) {
+        this.o_telefono = o_telefono;
+    }
 	
 	
 	

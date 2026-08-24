@@ -19,8 +19,8 @@ import com.iitca.tecnodesarrollo.service.Lista_pozosService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/lista_pozos")
-@CrossOrigin("*")
 public class Lista_pozosControler {
 
 	//desde aqui

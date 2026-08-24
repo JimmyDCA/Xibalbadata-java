@@ -17,8 +17,8 @@ import com.iitca.tecnodesarrollo.dto.Usuarios;
 import com.iitca.tecnodesarrollo.service.UsuariosService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/usuarios")
-@CrossOrigin("*")
 public class UsuariosControler {
 
 	//desde aqui

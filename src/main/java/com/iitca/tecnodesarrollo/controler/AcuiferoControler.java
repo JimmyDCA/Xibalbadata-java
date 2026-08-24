@@ -21,8 +21,8 @@ import com.iitca.tecnodesarrollo.dto.Acuifero;
 import com.iitca.tecnodesarrollo.service.AcuiferoService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/acuifero")
-@CrossOrigin("*")
 public class AcuiferoControler {
 
 	//desde aqui

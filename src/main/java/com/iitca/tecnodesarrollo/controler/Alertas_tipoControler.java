@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.iitca.tecnodesarrollo.service.Alertas_tipoService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/alertas_tipo")
-@CrossOrigin("*")
 public class Alertas_tipoControler {
 
 	//desde aqui

@@ -17,8 +17,8 @@ import com.iitca.tecnodesarrollo.dto.Mantenimiento;
 import com.iitca.tecnodesarrollo.service.MantenimientoService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/mantenimiento")
-@CrossOrigin("*")
 public class MantenimientoControler {
 
 	//desde aqui
