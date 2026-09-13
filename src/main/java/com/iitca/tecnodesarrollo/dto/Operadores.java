@@ -13,6 +13,8 @@ public class Operadores {
 	@Id
 	@Column(name="Id_o")
 	private int id_o;
+    @Column(name="o_matricula")
+	private String o_matricula;
 	@Column(name="o_nombre")
 	private String o_nombre;
 	@Column(name="o_correo")
@@ -28,6 +30,14 @@ public class Operadores {
 
     public void setId_o(int id_o) {
         this.id_o = id_o;
+    }
+
+    public String getO_matricula() {
+        return o_matricula;
+    }
+
+    public void setO_matricula(String o_matricula) {
+        this.o_matricula = o_matricula;
     }
 
     public String getO_nombre() {

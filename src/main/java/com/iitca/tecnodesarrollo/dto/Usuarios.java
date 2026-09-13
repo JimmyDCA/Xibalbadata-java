@@ -14,6 +14,8 @@ public class Usuarios {
 	@Id
 	@Column(name="Id_us")
 	private int id_us;
+    @Column(name="us_matricula")
+    private String us_matricula;
 	@Column(name="us_nombre")
 	private String us_nombre;
 	@Column(name="us_correo")
@@ -33,6 +35,14 @@ public class Usuarios {
         this.id_us = id_us;
     }
 
+    public String getUs_matricula() {
+        return us_matricula;
+    }
+
+    public void setUs_matricula(String us_matricula) {
+        this.us_matricula = us_matricula;
+    }
+    
     public String getUs_nombre() {
         return us_nombre;
     }

@@ -54,9 +54,10 @@ public class OperadoresControler {
 		return new ResponseEntity<Operadores>(operadoresService.updateoperadores(id_o, operadores),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{id_o}")
-	public ResponseEntity<?> deleteoperadores(@PathVariable int id_o){
-		operadoresService.deleteoperadores(id_o);
-		return ResponseEntity.ok("Se elimino");
-	}
+
+	@DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteOperador(@PathVariable("id") int id) {
+        operadoresService.deleteoperadores(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

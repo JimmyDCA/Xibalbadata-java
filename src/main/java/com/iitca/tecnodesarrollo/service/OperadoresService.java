@@ -18,6 +18,10 @@ public class OperadoresService {
 	@Autowired
 	private OperadoresRepo operadoresRepo;
 	
+	@Autowired
+	private UsuariosRepo usuariosRepo;
+
+
 	public List<Operadores> listAll(){
 		return operadoresRepo.findAll();
 	}
@@ -36,15 +40,13 @@ public class OperadoresService {
 		 
 	}
 	
-	public Operadores saveoperadores(Operadores operadores) {
-		return operadoresRepo.save(operadores);
-	}
 	
 	public Operadores updateoperadores(int id_o, Operadores operadoresToUpate) {
 		Optional<Operadores> operadoresFound = operadoresRepo.findById(id_o);
 		if(operadoresFound.isPresent()) {
 			Operadores operadoresFoundToUpdate = operadoresFound.get();
 			operadoresFoundToUpdate.setO_nombre(operadoresToUpate.getO_nombre(	));
+			operadoresFoundToUpdate.setO_matricula(operadoresToUpate.getO_matricula(	));
             operadoresFoundToUpdate.setO_correo(operadoresToUpate.getO_correo(	));
             operadoresFoundToUpdate.setO_contrasena(operadoresToUpate.getO_contrasena(	));
             operadoresFoundToUpdate.setO_telefono(operadoresToUpate.getO_telefono(	));
@@ -55,11 +57,21 @@ public class OperadoresService {
 	}
 	
 	public void deleteoperadores(int id_o) {
-		 operadoresRepo.deleteById(id_o);
+		// 1. Buscar al operador antes de borrarlo para obtener su correo
+        Optional<Operadores> operadorFound = operadoresRepo.findById(id_o);
+        
+        if (operadorFound.isPresent()) {
+            String correo = operadorFound.get().getO_correo();
+            
+            // 2. Si tiene correo, eliminarlo de la tabla usuarios
+            if (correo != null && !correo.trim().isEmpty()) {
+                usuariosRepo.deleteByUs_correo(correo);
+            }
+            
+            // 3. Eliminar de la tabla operadores
+            operadoresRepo.deleteById(id_o);
+		}
 	}
-
-	@Autowired
-	private UsuariosRepo usuariosRepo;
 
 	public Operadores saveOperador(Operadores operador) {
 		// 1. Guardar el operador
@@ -68,6 +80,7 @@ public class OperadoresService {
 		// 2. Crear y guardar en la tabla usuarios
 		Usuarios usuario = new Usuarios();
 		usuario.setUs_nombre(operador.getO_nombre());
+		usuario.setUs_matricula(operador.getO_matricula());
 		usuario.setUs_correo(operador.getO_correo());
 		usuario.setUs_contrasena(operador.getO_contrasena());
 		usuario.setUs_telefono(operador.getO_telefono());
