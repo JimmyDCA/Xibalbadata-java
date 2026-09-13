@@ -46,7 +46,7 @@ public class OperadoresControler {
         System.out.println(operadores.getO_correo());
         System.out.println(operadores.getO_contrasena());
         System.out.println(operadores.getO_telefono());
-		return new ResponseEntity<>(operadoresService.saveoperadores(operadores),HttpStatus.CREATED);
+		return new ResponseEntity<>(operadoresService.saveOperador(operadores), HttpStatus.CREATED);	
 	}
 	
 	@PutMapping("/{id_o}")

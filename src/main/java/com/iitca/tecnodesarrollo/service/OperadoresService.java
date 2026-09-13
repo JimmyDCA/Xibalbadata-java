@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 //import com.iitca.tecnodesarrollo.dto.ErrorMsg;
 import com.iitca.tecnodesarrollo.dto.Operadores;
+import com.iitca.tecnodesarrollo.dto.Usuarios;
 import com.iitca.tecnodesarrollo.repo.OperadoresRepo;
+import com.iitca.tecnodesarrollo.repo.UsuariosRepo;
 
 @Service
 public class OperadoresService {
@@ -54,5 +56,24 @@ public class OperadoresService {
 	
 	public void deleteoperadores(int id_o) {
 		 operadoresRepo.deleteById(id_o);
+	}
+
+	@Autowired
+	private UsuariosRepo usuariosRepo;
+
+	public Operadores saveOperador(Operadores operador) {
+		// 1. Guardar el operador
+		Operadores nuevoOp = operadoresRepo.save(operador);
+
+		// 2. Crear y guardar en la tabla usuarios
+		Usuarios usuario = new Usuarios();
+		usuario.setUs_nombre(operador.getO_nombre());
+		usuario.setUs_correo(operador.getO_correo());
+		usuario.setUs_contrasena(operador.getO_contrasena());
+		usuario.setUs_telefono(operador.getO_telefono());
+		usuario.setUs_tipo("operador");
+		usuariosRepo.save(usuario);
+
+		return nuevoOp;
 	}
 }
