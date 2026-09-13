@@ -4,9 +4,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "usuarios")
+@JsonIgnoreProperties({"us_contrasena"})
 public class Usuarios {
 
 	@Id
@@ -19,7 +21,7 @@ public class Usuarios {
 	@Column(name = "us_contrasena")
 	private String us_contrasena;
 	@Column(name="us_telefono")
-	private Integer us_telefono;
+	private Long us_telefono;
     @Column(name = "us_tipo")
 	private String us_tipo;
 
@@ -55,11 +57,11 @@ public class Usuarios {
         this.us_contrasena = us_contrasena;
     }
 
-    public Integer getUs_telefono() {
+    public Long getUs_telefono() {
         return us_telefono;
     }
 
-    public void setUs_telefono(Integer us_telefono) {
+    public void setUs_telefono(Long us_telefono) {
         this.us_telefono = us_telefono;
     }
 
