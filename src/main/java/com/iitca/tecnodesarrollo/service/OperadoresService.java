@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 //import com.iitca.tecnodesarrollo.dto.ErrorMsg;
@@ -20,6 +21,9 @@ public class OperadoresService {
 	
 	@Autowired
 	private UsuariosRepo usuariosRepo;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 
 	public List<Operadores> listAll(){
@@ -74,6 +78,11 @@ public class OperadoresService {
 	}
 
 	public Operadores saveOperador(Operadores operador) {
+
+		// Hasheo de contraseña
+		if (operador.getO_contrasena() != null && !operador.getO_contrasena().trim().isEmpty()) {
+			operador.setO_contrasena(passwordEncoder.encode(operador.getO_contrasena()));
+		}
 		// 1. Guardar el operador
 		Operadores nuevoOp = operadoresRepo.save(operador);
 
@@ -82,8 +91,11 @@ public class OperadoresService {
 		usuario.setUs_nombre(operador.getO_nombre());
 		usuario.setUs_matricula(operador.getO_matricula());
 		usuario.setUs_correo(operador.getO_correo());
-		usuario.setUs_contrasena(operador.getO_contrasena());
-		usuario.setUs_telefono(operador.getO_telefono());
+		usuario.setUs_contrasena(operador.getO_contrasena()); 
+
+		if (operador.getO_telefono() > 0) {
+    		usuario.setUs_telefono(Long.valueOf(operador.getO_telefono()));
+		}
 		usuario.setUs_tipo("operador");
 		usuariosRepo.save(usuario);
 

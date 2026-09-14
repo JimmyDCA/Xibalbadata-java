@@ -30,10 +30,16 @@ public class UsuariosService {
     
     // REGISTRO DE USUARIOS
     public Usuarios saveusuarios(Usuarios usuarios) {
-        if (usuarios.getUs_contrasena() != null) {
-            String hash = passwordEncoder.encode(usuarios.getUs_contrasena());
-            usuarios.setUs_contrasena(hash);
+        // 1. Evitar NullPointerException al cifrar
+        if (usuarios.getUs_contrasena() != null && !usuarios.getUs_contrasena().trim().isEmpty()) {
+            usuarios.setUs_contrasena(passwordEncoder.encode(usuarios.getUs_contrasena()));
         }
+
+        // 2. Garantizar rol por defecto si viene vacío
+        if (usuarios.getUs_tipo() == null || usuarios.getUs_tipo().trim().isEmpty()) {
+            usuarios.setUs_tipo("administrador");
+        }
+
         return usuariosRepo.save(usuarios);
     }
     
@@ -66,6 +72,20 @@ public class UsuariosService {
             return passwordEncoder.matches(contrasenaIngresada, usuarioOpt.get().getUs_contrasena());
         }
         return false;
+    }
+
+    // AUTENTICACIÓN DE USUARIOS (DEVUELVE EL OBJETO USUARIO SI ES EXITOSA)
+    public Optional<Usuarios> autenticar(String correo, String contrasenaIngresada) {
+        Optional<Usuarios> usuarioOpt = usuariosRepo.findByUs_correo(correo);
+        
+        if (usuarioOpt.isPresent()) {
+            Usuarios usuario = usuarioOpt.get();
+            // Compara contraseña en texto plano contra el hash BCrypt de la BD
+            if (passwordEncoder.matches(contrasenaIngresada, usuario.getUs_contrasena())) {
+                return Optional.of(usuario);
+            }
+        }
+        return Optional.empty();
     }
     
     public void deleteusuarios(int id_us) {

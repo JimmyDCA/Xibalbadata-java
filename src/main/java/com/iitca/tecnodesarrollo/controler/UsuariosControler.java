@@ -1,5 +1,7 @@
 	package com.iitca.tecnodesarrollo.controler;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +14,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.Map;
+import java.util.Optional;
 
+import com.iitca.tecnodesarrollo.dto.LoginRequest;
 import com.iitca.tecnodesarrollo.dto.Usuarios;
 import com.iitca.tecnodesarrollo.service.UsuariosService;
 
@@ -60,4 +65,28 @@ public class UsuariosControler {
 		usuariosService.deleteusuarios(id_us);
 		return ResponseEntity.ok("Se elimino");
 	}
+
+
+	@PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        Optional<Usuarios> usuarioAutenticado = usuariosService.autenticar(
+            loginRequest.getCorreo(), 
+            loginRequest.getContrasena()
+        );
+
+        if (usuarioAutenticado.isPresent()) {
+            Usuarios usr = usuarioAutenticado.get();
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("id_us", usr.getId_us());
+            response.put("nombre", usr.getUs_nombre());
+            response.put("correo", usr.getUs_correo());
+            response.put("rol", usr.getUs_tipo()); // "administrador" u "operador"
+            
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("mensaje", "Correo o contraseña incorrectos"));
+        }
+    }
 }
