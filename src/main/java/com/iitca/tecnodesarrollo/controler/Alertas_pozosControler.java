@@ -17,8 +17,8 @@ import com.iitca.tecnodesarrollo.dto.Alertas_pozos;
 import com.iitca.tecnodesarrollo.service.Alertas_pozosService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/alertas_pozos")
-@CrossOrigin("*")
 public class Alertas_pozosControler {
 
 	//desde aqui

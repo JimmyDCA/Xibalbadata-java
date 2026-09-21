@@ -17,8 +17,8 @@ import com.iitca.tecnodesarrollo.dto.Oo;
 import com.iitca.tecnodesarrollo.service.OoService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/oo")
-@CrossOrigin("*")
 public class OoControler {
 
 	//desde aqui

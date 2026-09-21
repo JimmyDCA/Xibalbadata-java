@@ -19,8 +19,8 @@ import com.iitca.tecnodesarrollo.service.Lista_pozosService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/lista_pozos")
-@CrossOrigin("*")
 public class Lista_pozosControler {
 
 	//desde aqui
@@ -51,7 +51,6 @@ public class Lista_pozosControler {
 		System.out.println(lista_pozos.getLp_Profundidad_perforación());
 		System.out.println(lista_pozos.getLp_Diámetro_perforación());
 		System.out.println(lista_pozos.getLp_Diámetro_ADEME());
-       // System.out.println(lista_pozos.getLp_Documentos());
 
 		return new ResponseEntity<>(lista_pozosService.savelista_pozos(lista_pozos),HttpStatus.CREATED);
 	}

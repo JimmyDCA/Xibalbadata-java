@@ -17,8 +17,8 @@ import com.iitca.tecnodesarrollo.dto.Operadores;
 import com.iitca.tecnodesarrollo.service.OperadoresService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/operadores")
-@CrossOrigin("*")
 public class OperadoresControler {
 
 	//desde aqui
@@ -46,7 +46,7 @@ public class OperadoresControler {
         System.out.println(operadores.getO_correo());
         System.out.println(operadores.getO_contrasena());
         System.out.println(operadores.getO_telefono());
-		return new ResponseEntity<>(operadoresService.saveoperadores(operadores),HttpStatus.CREATED);
+		return new ResponseEntity<>(operadoresService.saveOperador(operadores), HttpStatus.CREATED);	
 	}
 	
 	@PutMapping("/{id_o}")
@@ -54,9 +54,10 @@ public class OperadoresControler {
 		return new ResponseEntity<Operadores>(operadoresService.updateoperadores(id_o, operadores),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{id_o}")
-	public ResponseEntity<?> deleteoperadores(@PathVariable int id_o){
-		operadoresService.deleteoperadores(id_o);
-		return ResponseEntity.ok("Se elimino");
-	}
+
+	@DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteOperador(@PathVariable("id") int id) {
+        operadoresService.deleteoperadores(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

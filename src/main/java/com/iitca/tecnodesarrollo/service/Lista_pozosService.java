@@ -48,7 +48,6 @@ public class Lista_pozosService {
 			lista_pozosFoundToUpdate.setLp_Profundidad_perforación(lista_pozosToUpate.getLp_Profundidad_perforación());
 			lista_pozosFoundToUpdate.setLp_Diámetro_perforación(lista_pozosToUpate.getLp_Diámetro_perforación());
 			lista_pozosFoundToUpdate.setLp_Diámetro_ADEME(lista_pozosToUpate.getLp_Diámetro_ADEME());
-            //lista_pozosFoundToUpdate.setLp_Documentos(lista_pozosToUpate.getLp_Documentos());
 			return lista_pozosRepo.save(lista_pozosFoundToUpdate);
 		}else {
 			return null;
