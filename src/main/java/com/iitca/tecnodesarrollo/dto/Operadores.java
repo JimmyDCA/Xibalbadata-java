@@ -22,7 +22,7 @@ public class Operadores {
 	@Column(name = "o_contrasena")
 	private String o_contrasena;
 	@Column(name="o_telefono")
-	private long o_telefono;
+	private Long o_telefono;
 
     public int getId_o() {
         return id_o;
@@ -64,11 +64,11 @@ public class Operadores {
         this.o_contrasena = o_contrasena;
     }
 
-    public long getO_telefono() {
+    public Long getO_telefono() {
         return o_telefono;
     }
 
-    public void setO_telefono(long o_telefono) {
+    public void setO_telefono(Long o_telefono) {
         this.o_telefono = o_telefono;
     }
 	
