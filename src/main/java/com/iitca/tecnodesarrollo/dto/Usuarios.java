@@ -29,7 +29,7 @@ public class Usuarios {
     private String us_correo;
 
     // WRITE_ONLY: Permite recibirla en el POST, pero jamás la expone en respuestas JSON
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(value= "us_contrasena", access = JsonProperty.Access.WRITE_ONLY)
     @JsonAlias ({"contrasena","us_contrasena"})
     @Column(name = "us_contrasena")
     private String us_contrasena;
