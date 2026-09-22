@@ -1,6 +1,7 @@
 package com.iitca.tecnodesarrollo.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonAlias;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +30,7 @@ public class Usuarios {
 
     // WRITE_ONLY: Permite recibirla en el POST, pero jamás la expone en respuestas JSON
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonAlias ({"contrasena","us_contrasena"})
     @Column(name = "us_contrasena")
     private String us_contrasena;
 
