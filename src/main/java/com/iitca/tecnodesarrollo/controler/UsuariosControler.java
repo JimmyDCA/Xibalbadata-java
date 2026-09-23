@@ -80,6 +80,8 @@ public class UsuariosControler {
             Map<String, Object> response = new HashMap<>();
             response.put("id_us", usr.getId_us());
             response.put("nombre", usr.getUs_nombre());
+			response.put("matricula", usr.getUs_matricula());
+			response.put("telefono", usr.getUs_telefono());
             response.put("correo", usr.getUs_correo());
             response.put("rol", usr.getUs_tipo()); // "administrador" u "operador"
             
