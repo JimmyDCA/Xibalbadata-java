@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.iitca.tecnodesarrollo.dto.Lista_pozos;
 import com.iitca.tecnodesarrollo.service.Lista_pozosService;
 
-import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -51,6 +50,14 @@ public class Lista_pozosControler {
 		System.out.println(lista_pozos.getLp_Profundidad_perforación());
 		System.out.println(lista_pozos.getLp_Diámetro_perforación());
 		System.out.println(lista_pozos.getLp_Diámetro_ADEME());
+		System.out.println(lista_pozos.getLp_subestacion());
+		System.out.println(lista_pozos.getLp_circuito_electrico());
+		System.out.println(lista_pozos.getLp_aporta_acueducto());
+		System.out.println(lista_pozos.getLp_aporta_comunidad());
+		System.out.println(lista_pozos.getLp_aporta_riego());
+		System.out.println(lista_pozos.getLp_pa_cdmx());
+		System.out.println(lista_pozos.getLp_telemetria());
+		System.out.println(lista_pozos.getLp_utr());
 
 		return new ResponseEntity<>(lista_pozosService.savelista_pozos(lista_pozos),HttpStatus.CREATED);
 	}

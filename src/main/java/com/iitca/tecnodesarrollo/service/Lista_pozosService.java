@@ -48,6 +48,14 @@ public class Lista_pozosService {
 			lista_pozosFoundToUpdate.setLp_Profundidad_perforación(lista_pozosToUpate.getLp_Profundidad_perforación());
 			lista_pozosFoundToUpdate.setLp_Diámetro_perforación(lista_pozosToUpate.getLp_Diámetro_perforación());
 			lista_pozosFoundToUpdate.setLp_Diámetro_ADEME(lista_pozosToUpate.getLp_Diámetro_ADEME());
+			lista_pozosFoundToUpdate.setLp_subestacion(lista_pozosToUpate.getLp_subestacion());
+			lista_pozosFoundToUpdate.setLp_circuito_electrico(lista_pozosToUpate.getLp_circuito_electrico());
+			lista_pozosFoundToUpdate.setLp_aporta_acueducto(lista_pozosToUpate.getLp_aporta_acueducto());
+			lista_pozosFoundToUpdate.setLp_aporta_comunidad(lista_pozosToUpate.getLp_aporta_comunidad());
+			lista_pozosFoundToUpdate.setLp_aporta_riego(lista_pozosToUpate.getLp_aporta_riego());
+			lista_pozosFoundToUpdate.setLp_pa_cdmx(lista_pozosToUpate.getLp_pa_cdmx());
+			lista_pozosFoundToUpdate.setLp_telemetria(lista_pozosToUpate.getLp_telemetria());
+			lista_pozosFoundToUpdate.setLp_utr(lista_pozosToUpate.getLp_utr());
 			return lista_pozosRepo.save(lista_pozosFoundToUpdate);
 		}else {
 			return null;
