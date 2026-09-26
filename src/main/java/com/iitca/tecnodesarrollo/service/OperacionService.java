@@ -71,6 +71,7 @@ public class OperacionService {
             operacionFoundToUpdate.setOp_presion(operacionToUpate.getOp_presion(	));
             operacionFoundToUpdate.setOp_tiempo_op(operacionToUpate.getOp_tiempo_op(	));
             operacionFoundToUpdate.setOp_observaciones(operacionToUpate.getOp_observaciones(	));
+            operacionFoundToUpdate.setOp_operando(operacionToUpate.getOp_operando(	));
 			return operacionRepo.save(operacionFoundToUpdate);
 		}else {
 			return null;

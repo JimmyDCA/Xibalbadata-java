@@ -57,6 +57,7 @@ public class OperacionControler {
         System.out.println(operacion.getOp_presion());
         System.out.println(operacion.getOp_tiempo_op());
         System.out.println(operacion.getOp_observaciones());
+        System.out.println(operacion.getOp_operando());
 		return new ResponseEntity<>(operacionService.saveoperacion(operacion),HttpStatus.CREATED);
 	}
 	

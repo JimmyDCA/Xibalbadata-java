@@ -22,16 +22,6 @@ public class Lista_pozosService {
 	
 	public Object getlista_pozosByid(int id_lp) {
             return lista_pozosRepo.findById(id_lp);
-		/*Optional<Pozo> pozoFound =  pozoRepo.findById(idPozo);
-		if(pozoFound.isPresent()) {
-			return pozoFound.get();
-		}else {
-			ErrorMsg error = new ErrorMsg();
-			error.setErrorCode(400);
-			error.setMessageCode("No existe el pozo "+idPozo);
-			return	error;
-		}*/
-		 
 	}
 	
 	public Lista_pozos savelista_pozos(Lista_pozos lista_pozos) {
