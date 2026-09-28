@@ -1,3 +1,4 @@
+
 package com.iitca.tecnodesarrollo.dto;
 
 import java.time.LocalDateTime;
@@ -13,10 +14,10 @@ public class Mantenimiento {
 
     @Id
     @Column(name="Id_lp")
-    private int idLp;
+    private Integer idLp;
 
     @Column(name="mtto_operador")
-    private int mtto_operador;
+    private Integer mtto_operador;
 
     @Column(name="mtto_clave_pozo")
     private String mtto_clave_pozo;
@@ -28,37 +29,37 @@ public class Mantenimiento {
     private String mtto_motor_tipo;
 
     @Column(name="mtto_motor_hp")
-    private int mtto_motor_hp;
+    private Integer mtto_motor_hp;
 
     @Column(name="mtto_motor_kw")
-    private int mtto_motor_kw;
+    private Integer mtto_motor_kw;
 
     @Column(name="mtto_motor_eficiencia")
-    private int mtto_motor_eficiencia;
+    private Integer mtto_motor_eficiencia;
 
     @Column(name="mtto_tablero_tipo")
     private String mtto_tablero_tipo;
 
     @Column(name="mtto_tablero_capacidad")
-    private int mtto_tablero_capacidad;
+    private Integer mtto_tablero_capacidad;
 
     @Column(name="mtto_transformador_tipo")
     private String mtto_transformador_tipo;
 
     @Column(name="mtto_transformador_capacidad")
-    private int mtto_transformador_capacidad;
+    private Integer mtto_transformador_capacidad;
 
     @Column(name="mtto_calibre_sumergible")
     private String mtto_calibre_sumergible;
 
     @Column(name="mtto_longitud_sumergible")
-    private int mtto_longitud_sumergible;
+    private Integer mtto_longitud_sumergible;
 
     @Column(name="mtto_tuberia_diametro")
-    private int mtto_tuberia_diametro;
+    private Integer mtto_tuberia_diametro;
 
     @Column(name="mtto_tuberia_longitud")
-    private int mtto_tuberia_longitud;
+    private Integer mtto_tuberia_longitud;
 
     @Column(name="mtto_observaciones")
     private String mtto_observaciones;
@@ -118,24 +119,21 @@ public class Mantenimiento {
     private String mtto_sanitaria;
 
 
-
-
-
     // --- GETTERS Y SETTERS --- //
 
-    public int getIdLp() {
+    public Integer getIdLp() {
         return idLp;
     }
 
-    public void setIdLp(int idLp) {
+    public void setIdLp(Integer idLp) {
         this.idLp = idLp;
     }
 
-    public int getMtto_operador() {
+    public Integer getMtto_operador() {
         return mtto_operador;
     }
 
-    public void setMtto_operador(int mtto_operador) {
+    public void setMtto_operador(Integer mtto_operador) {
         this.mtto_operador = mtto_operador;
     }
 
@@ -163,27 +161,27 @@ public class Mantenimiento {
         this.mtto_motor_tipo = mtto_motor_tipo;
     }
 
-    public int getMtto_motor_hp() {
+    public Integer getMtto_motor_hp() {
         return mtto_motor_hp;
     }
 
-    public void setMtto_motor_hp(int mtto_motor_hp) {
+    public void setMtto_motor_hp(Integer mtto_motor_hp) {
         this.mtto_motor_hp = mtto_motor_hp;
     }
 
-    public int getMtto_motor_kw() {
+    public Integer getMtto_motor_kw() {
         return mtto_motor_kw;
     }
 
-    public void setMtto_motor_kw(int mtto_motor_kw) {
+    public void setMtto_motor_kw(Integer mtto_motor_kw) {
         this.mtto_motor_kw = mtto_motor_kw;
     }
 
-    public int getMtto_motor_eficiencia() {
+    public Integer getMtto_motor_eficiencia() {
         return mtto_motor_eficiencia;
     }
 
-    public void setMtto_motor_eficiencia(int mtto_motor_eficiencia) {
+    public void setMtto_motor_eficiencia(Integer mtto_motor_eficiencia) {
         this.mtto_motor_eficiencia = mtto_motor_eficiencia;
     }
 
@@ -195,11 +193,11 @@ public class Mantenimiento {
         this.mtto_tablero_tipo = mtto_tablero_tipo;
     }
 
-    public int getMtto_tablero_capacidad() {
+    public Integer getMtto_tablero_capacidad() {
         return mtto_tablero_capacidad;
     }
 
-    public void setMtto_tablero_capacidad(int mtto_tablero_capacidad) {
+    public void setMtto_tablero_capacidad(Integer mtto_tablero_capacidad) {
         this.mtto_tablero_capacidad = mtto_tablero_capacidad;
     }
 
@@ -211,11 +209,11 @@ public class Mantenimiento {
         this.mtto_transformador_tipo = mtto_transformador_tipo;
     }
 
-    public int getMtto_transformador_capacidad() {
+    public Integer getMtto_transformador_capacidad() {
         return mtto_transformador_capacidad;
     }
 
-    public void setMtto_transformador_capacidad(int mtto_transformador_capacidad) {
+    public void setMtto_transformador_capacidad(Integer mtto_transformador_capacidad) {
         this.mtto_transformador_capacidad = mtto_transformador_capacidad;
     }
 
@@ -227,27 +225,27 @@ public class Mantenimiento {
         this.mtto_calibre_sumergible = mtto_calibre_sumergible;
     }
 
-    public int getMtto_longitud_sumergible() {
+    public Integer getMtto_longitud_sumergible() {
         return mtto_longitud_sumergible;
     }
 
-    public void setMtto_longitud_sumergible(int mtto_longitud_sumergible) {
+    public void setMtto_longitud_sumergible(Integer mtto_longitud_sumergible) {
         this.mtto_longitud_sumergible = mtto_longitud_sumergible;
     }
 
-    public int getMtto_tuberia_diametro() {
+    public Integer getMtto_tuberia_diametro() {
         return mtto_tuberia_diametro;
     }
 
-    public void setMtto_tuberia_diametro(int mtto_tuberia_diametro) {
+    public void setMtto_tuberia_diametro(Integer mtto_tuberia_diametro) {
         this.mtto_tuberia_diametro = mtto_tuberia_diametro;
     }
 
-    public int getMtto_tuberia_longitud() {
+    public Integer getMtto_tuberia_longitud() {
         return mtto_tuberia_longitud;
     }
 
-    public void setMtto_tuberia_longitud(int mtto_tuberia_longitud) {
+    public void setMtto_tuberia_longitud(Integer mtto_tuberia_longitud) {
         this.mtto_tuberia_longitud = mtto_tuberia_longitud;
     }
 
