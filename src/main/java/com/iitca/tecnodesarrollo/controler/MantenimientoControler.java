@@ -64,7 +64,7 @@ public class MantenimientoControler {
         System.out.println(mantenimiento.getMtto_medidor_presion());
         System.out.println(mantenimiento.getMtto_medidor_flujo());
         System.out.println(mantenimiento.getMtto_medidor_NE());
-        System.out.println(mantenimiento.getMtt_medidor_ND());
+        System.out.println(mantenimiento.getMtto_medidor_ND());
         System.out.println(mantenimiento.getMtto_sistema_tierras());
         System.out.println(mantenimiento.getMtto_cable_transformador());
         System.out.println(mantenimiento.getMtto_cable_bomba());

@@ -56,7 +56,7 @@ public class MantenimientoService {
             mantenimientoFoundToUpdate.setMtto_medidor_presion(mantenimientoToUpate.getMtto_medidor_presion());
             mantenimientoFoundToUpdate.setMtto_medidor_flujo(mantenimientoToUpate.getMtto_medidor_flujo());
             mantenimientoFoundToUpdate.setMtto_medidor_NE(mantenimientoToUpate.getMtto_medidor_NE());
-            mantenimientoFoundToUpdate.setMtt_medidor_ND(mantenimientoToUpate.getMtt_medidor_ND());
+            mantenimientoFoundToUpdate.setMtto_medidor_ND(mantenimientoToUpate.getMtto_medidor_ND());
             mantenimientoFoundToUpdate.setMtto_sistema_tierras(mantenimientoToUpate.getMtto_sistema_tierras());
             mantenimientoFoundToUpdate.setMtto_cable_transformador(mantenimientoToUpate.getMtto_cable_transformador());
             mantenimientoFoundToUpdate.setMtto_cable_bomba(mantenimientoToUpate.getMtto_cable_bomba());

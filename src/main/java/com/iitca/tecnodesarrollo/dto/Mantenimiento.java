@@ -79,8 +79,8 @@ public class Mantenimiento {
     @Column(name="mtto_medidor_NE")
     private String mtto_medidor_NE;
 
-    @Column(name="mtt_medidor_ND")
-    private String mtt_medidor_ND;
+    @Column(name="mtto_medidor_ND")
+    private String mtto_medidor_ND;
 
     @Column(name="mtto_sistema_tierras")
     private String mtto_sistema_tierras;
@@ -297,12 +297,12 @@ public class Mantenimiento {
         this.mtto_medidor_NE = mtto_medidor_NE;
     }
 
-    public String getMtt_medidor_ND() {
-        return mtt_medidor_ND;
+    public String getMtto_medidor_ND() {
+        return mtto_medidor_ND;
     }
 
-    public void setMtt_medidor_ND(String mtt_medidor_ND) {
-        this.mtt_medidor_ND = mtt_medidor_ND;
+    public void setMtto_medidor_ND(String mtto_medidor_ND) {
+        this.mtto_medidor_ND = mtto_medidor_ND;
     }
 
     public String getMtto_sistema_tierras() {
