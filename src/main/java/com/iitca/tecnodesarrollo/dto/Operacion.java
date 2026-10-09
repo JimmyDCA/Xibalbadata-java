@@ -14,41 +14,41 @@ import jakarta.persistence.Table;
 @Table(name = "operacion")
 public class Operacion {
 
-	@Id
-	@Column(name="op_id")
-	private int id_op;
+    @Id
+    @Column(name="op_id")
+    private int id_op;
 
-	@Column(name = "Id_lp")
-	private int idLp;
+    @Column(name = "Id_lp")
+    private int idLp;
 
-	@Column(name="op_cpozo")
-	private String op_cpozo;
+    @Column(name="op_cpozo")
+    private String op_cpozo;
 
-	@CreationTimestamp
-	@Column(name="op_fecha_captura")
+    @CreationTimestamp
+    @Column(name="op_fecha_captura")
     private LocalDateTime op_fecha_captura; 
 
-	@Column(name = "op_operador")
-	private String op_operador;
+    @Column(name = "op_operador")
+    private String op_operador;
 
-	//una vez enlazado con la app cambiar a int
-	@Column(name = "op_nestatico")
-	private float op_nestatico;
+    // Cambiado de float a Double para prevenir errores NullPointerException
+    @Column(name = "op_nestatico")
+    private Double op_nestatico;
 
-	@Column(name="op_ndinamico")
-	private float op_ndinamico;
+    @Column(name="op_ndinamico")
+    private Double op_ndinamico;
 
     @Column(name="op_gasto")
-	private float op_gasto;
+    private Double op_gasto;
 
     @Column(name="op_presion")
-	private float op_presion;
+    private Double op_presion;
 
     @Column(name="op_tiempo_op")
-	private float op_tiempo_op;
+    private Double op_tiempo_op;
 
     @Column(name="op_observaciones")
-	private String op_observaciones;
+    private String op_observaciones;
 
     @Column (name="op_operando")
     private String op_operando;  
@@ -94,43 +94,43 @@ public class Operacion {
         this.op_operador = op_operador;
     }
 
-    public float getOp_nestatico() {
+    public Double getOp_nestatico() {
         return op_nestatico;
     }
 
-    public void setOp_nestatico(float op_nestatico) {
+    public void setOp_nestatico(Double op_nestatico) {
         this.op_nestatico = op_nestatico;
     }
 
-    public float getOp_ndinamico() {
+    public Double getOp_ndinamico() {
         return op_ndinamico;
     }
 
-    public void setOp_ndinamico(float op_ndinamico) {
+    public void setOp_ndinamico(Double op_ndinamico) {
         this.op_ndinamico = op_ndinamico;
     }
 
-    public float getOp_gasto() {
+    public Double getOp_gasto() {
         return op_gasto;
     }
 
-    public void setOp_gasto(float op_gasto) {
+    public void setOp_gasto(Double op_gasto) {
         this.op_gasto = op_gasto;
     }
 
-    public float getOp_presion() {
+    public Double getOp_presion() {
         return op_presion;
     }
 
-    public void setOp_presion(float op_presion) {
+    public void setOp_presion(Double op_presion) {
         this.op_presion = op_presion;
     }
 
-    public float getOp_tiempo_op() {
+    public Double getOp_tiempo_op() {
         return op_tiempo_op;
     }
 
-    public void setOp_tiempo_op(float op_tiempo_op) {
+    public void setOp_tiempo_op(Double op_tiempo_op) {
         this.op_tiempo_op = op_tiempo_op;
     }
 
@@ -149,7 +149,5 @@ public class Operacion {
     public void setOp_operando(String op_operando) {
         this.op_operando = op_operando;
     }
-	
-	
-	
+    
 }
