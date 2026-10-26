@@ -1,12 +1,11 @@
 package com.iitca.tecnodesarrollo.dto;
-
-//import java.sql.Blob;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Lob;
 
 @Data
 @Entity
@@ -26,8 +25,11 @@ public class Lista_pozos {
 	@Column(name="lp_ramal")
 	private String lp_ramal;
 
-	//@Column(name="lp_Ubicación")
-	//private Blob lp_Ubicación;
+    @JsonIgnore   // evita mandar el blob en base64 en el JSON de la pantalla
+    @Lob
+    @Column(name = "lp_Ubicación")
+    private byte[] lp_ubicacion;
+
 
 	@Column(name="lp_Profundidad_perforación")
 	private Integer lp_Profundidad_perforación;
@@ -165,6 +167,14 @@ public class Lista_pozos {
     }
     public void setLp_utr(String lp_utr) {
         this.lp_utr = lp_utr;
+    }
+
+    public byte[] getLp_ubicacion() {
+        return lp_ubicacion;
+    }
+
+    public void setLp_ubicacion(byte[] lp_ubicacion) {
+        this.lp_ubicacion = lp_ubicacion;
     }
 
     
