@@ -84,13 +84,6 @@ public class ReporteService {
                 {"UBICACIÓN / COORDENADAS", txt(pozo.getLp_ubicacion(), "No especificada")}
         }));
 
-        documento.add(crearSeccion("1. Datos Generales", new String[][]{
-                {"CLAVE DEL POZO", txt(pozo.getL_poz_clave(), "Sin registro"), "destacado"},
-                {"NOMBRE DE IDENTIFICACIÓN", txt(pozo.getLp_Nombre(), "Sin registro")},
-                {"RAMAL", txt(pozo.getLp_ramal(), "No asignado")},
-                {"UBICACIÓN / COORDENADAS", txt(pozo.getLp_ubicacion(), "No especificada")}
-        }));
-
         // ---------- 2. Características Físicas ----------
         documento.add(crearSeccion("2. Características Físicas", new String[][]{
                 {"PROFUNDIDAD DE PERFORACIÓN", txt(pozo.getLp_Profundidad_perforación(), "0") + " metros", "destacado"},
