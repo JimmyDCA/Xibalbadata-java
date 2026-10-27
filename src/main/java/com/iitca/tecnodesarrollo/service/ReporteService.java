@@ -57,33 +57,19 @@ public class ReporteService {
             documento.add(sub);
 
         // ---------- 1. Datos Generales ----------
-        // La ubicación puede ser una imagen (mapa) o texto (coordenadas)
-        byte[] ubic = pozo.getLp_ubicacion();
-        Image mapa = null;
-        String ubicTexto = "No especificada";
-        if (ubic != null && ubic.length > 0) {
-            try {
-                mapa = Image.getInstance(ubic);            // si es imagen
-                ubicTexto = "Ver imagen adjunta";
-            } catch (Exception e) {                         // si no, es texto
-                String t = new String(ubic, StandardCharsets.UTF_8).trim();
-                if (!t.isEmpty()) ubicTexto = t;
-            }
-        }
+        documento.add(crearSeccion("1. Datos Generales", new String[][]{
+                {"CLAVE DEL POZO", txt(pozo.getL_poz_clave(), "Sin registro"), "destacado"},
+                {"NOMBRE DE IDENTIFICACIÓN", txt(pozo.getLp_Nombre(), "Sin registro")},
+                {"RAMAL", txt(pozo.getLp_ramal(), "No asignado")},
+                {"UBICACIÓN / COORDENADAS", txt(pozo.getLp_ubicacion(), "No especificada")}
+        }));
 
         documento.add(crearSeccion("1. Datos Generales", new String[][]{
                 {"CLAVE DEL POZO", txt(pozo.getL_poz_clave(), "Sin registro"), "destacado"},
                 {"NOMBRE DE IDENTIFICACIÓN", txt(pozo.getLp_Nombre(), "Sin registro")},
                 {"RAMAL", txt(pozo.getLp_ramal(), "No asignado")},
-                {"UBICACIÓN / COORDENADAS", ubicTexto}
+                {"UBICACIÓN / COORDENADAS", txt(pozo.getLp_ubicacion(), "No especificada")}
         }));
-
-        if (mapa != null) {
-            mapa.scaleToFit(300, 200);
-            mapa.setAlignment(Element.ALIGN_CENTER);
-            mapa.setSpacingBefore(8);
-            documento.add(mapa);
-        }
 
         // ---------- 2. Características Físicas ----------
         documento.add(crearSeccion("2. Características Físicas", new String[][]{

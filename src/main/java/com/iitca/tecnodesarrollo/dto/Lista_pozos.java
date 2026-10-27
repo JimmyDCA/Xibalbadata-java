@@ -25,10 +25,8 @@ public class Lista_pozos {
 	@Column(name="lp_ramal")
 	private String lp_ramal;
 
-    @JsonIgnore   // evita mandar el blob en base64 en el JSON de la pantalla
-    @Lob
     @Column(name = "lp_Ubicación")
-    private byte[] lp_ubicacion;
+    private String lp_ubicacion;
 
 
 	@Column(name="lp_Profundidad_perforación")
@@ -169,13 +167,14 @@ public class Lista_pozos {
         this.lp_utr = lp_utr;
     }
 
-    public byte[] getLp_ubicacion() {
+    public String getLp_ubicacion() {
         return lp_ubicacion;
     }
 
-    public void setLp_ubicacion(byte[] lp_ubicacion) {
+    public void setLp_ubicacion(String lp_ubicacion) {
         this.lp_ubicacion = lp_ubicacion;
     }
+
 
     
     }
