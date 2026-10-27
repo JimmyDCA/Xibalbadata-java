@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface MantenimientoRepo extends JpaRepository<Mantenimiento, Integer> {
 
+    List<Mantenimiento> findByIdLp(int idLp);
+
     @Query("SELECT m FROM Mantenimiento m WHERE m.mtto_clave_pozo = :clave ORDER BY m.mtto_fecha_captura DESC")
     List<Mantenimiento> buscarPorClave(@Param("clave") String clave, Pageable pageable);
 }

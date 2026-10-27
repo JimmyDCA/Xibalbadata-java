@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//import com.iitca.tecnodesarrollo.dto.ErrorMsg;
 import com.iitca.tecnodesarrollo.dto.Operacion;
 import com.iitca.tecnodesarrollo.repo.OperacionRepo;
 
@@ -18,31 +17,6 @@ public class OperacionService {
 	private OperacionRepo operacionRepo;
 	
 	public List<Operacion> listAll(){
-		/*Operacion ope1 = new Operacion();
-		ope1.setId_op(1);
-		ope1.setOp_cpozo("P.A. 138");
-		ope1.setOp_fecha_captura(LocalDateTime.of(2025, 2, 4, 0, 0, 0));
-		ope1.setOp_gasto(12);
-		ope1.setOp_nestatico(63);
-		ope1.setOp_tiempo_op(23);
-
-		Operacion ope2 = new Operacion();
-		ope2.setId_op(2);
-		ope2.setOp_cpozo("P.A. 138");
-		ope2.setOp_fecha_captura(LocalDateTime.of(2025, 2, 6, 0, 0, 0));
-		ope2.setOp_gasto(12);
-		ope2.setOp_nestatico(64);
-		ope2.setOp_tiempo_op(24);
-
-		Operacion ope3 = new Operacion();
-		ope3.setId_op(2);
-		ope3.setOp_cpozo("P.A. 138");
-		ope3.setOp_fecha_captura(LocalDateTime.of(2025, 2, 6, 0, 0, 0));
-		ope3.setOp_gasto(12);
-		ope3.setOp_nestatico(64);
-		ope3.setOp_tiempo_op(24);*/
-
-
 		return operacionRepo.findAll();
 	}
 	

@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 
 public interface OperacionRepo extends JpaRepository<Operacion, Integer> {
 
+    List<Operacion> findByIdLp(int idLp);
+
     @Query("SELECT o FROM Operacion o WHERE o.idLp = :idLp ORDER BY o.op_fecha_captura DESC")
     List<Operacion> buscarPorPozo(@Param("idLp") int idLp, Pageable pageable);
 }
